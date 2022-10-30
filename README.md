@@ -8,24 +8,35 @@ encryption
 =====================
 
 ####
-decrypt:
+decrypt and overwrite:
 
-	gpgtar --decrypt --directory ./ encrypted.tar
+	rm -rf ./decrypted; gpgtar --decrypt --directory ./ encrypted.tar
 
-encrypt:
+encrypt, overwrite, and git add:
 
-	gpgtar --encrypt --output encrypted.tar -r bitcoinssg@gmail.com decrypted
+	gpgtar --encrypt --output encrypted.tar -r bitcoinssg@gmail.com decrypted; git add -A
 
 ensure encryption of sensitive data before repo push
 
-Author 
+
+installation / requirements
 =====================
-Gaurav Rana
+linux:
+
+	sudo apt-get install -y gpg git gpgtar
+
+failsafe measures
+=====================
+directory decrypted is always ignored (see .gitignore)
+
+author 
+=====================
+gaurav rana
 
 pgpkey: 
 	CF1E7DC6B92DE45FBD8A777B0CA3D94203827CB3
 
-Bitcoin public key hash for trust minimized timestamping: 
+trust minimized chronometer Bitcoin pubkeyhash: 
 	1GAURAV1vQPQ8zc9hRPEipoVGjCYfDWJEm
 
 email:
